@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#172725">
+  <meta name="description" content="Carta digital de La Tiza Alcosa Cervecería, en Sevilla Este.">
+  <title>La Tiza Alcosa Cervecería | Carta digital</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='12' fill='%23d9a64a'/%3E%3Cpath d='M12 28 20 10l8 18M15 22h10' fill='none' stroke='%23172725' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+  <script src="data.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#carta">Saltar a la carta</a>
+  <div class="kitchen-banner" id="kitchen-banner" role="status" aria-live="polite"></div>
+  <header class="site-header" id="inicio">
+    <div class="header-inner">
+      <a class="brand" href="#inicio" aria-label="La Tiza Alcosa Cervecería, inicio">
+        <span class="brand-mark" aria-hidden="true">T</span>
+        <span class="brand-name">La Tiza <small>Alcosa Cervecería</small></span>
+      </a>
+      <nav class="desktop-nav" aria-label="Navegación principal">
+        <a href="#carta">Carta</a><a href="#zonas">El local</a><a href="#contacto">Contacto</a>
+      </nav>
+      <a class="button button-outline header-order" href="#reserva">Reservar mesa <span aria-hidden="true">↗</span></a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero section-wrap" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="eyebrow-dot"></span> Sevilla Este · Alcosa Centro</p>
+        <h1 id="hero-title">Una mesa,<br>mucho que <em>compartir.</em></h1>
+        <p class="hero-lede">Tapas, raciones y cervezas en Sevilla Este</p>
+        <p class="hero-address" id="hero-address"></p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#carta">Ver carta <span aria-hidden="true">↓</span></a>
+          <a class="button button-quiet" href="#reserva">Reservar mesa <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="chalk-ring ring-one"></div><div class="chalk-ring ring-two"></div>
+        <span class="hero-art-top">BUENAS</span>
+        <div class="beer-glass"><div class="beer-foam"></div><div class="beer-liquid"></div><div class="beer-handle"></div></div>
+        <span class="hero-art-bottom">TAPAS · CHARLA · BARRIO</span>
+        <span class="hero-spark spark-one">✳</span><span class="hero-spark spark-two">✳</span>
+      </div>
+      <div class="hero-footnote"><span>01 — 05</span><span>Desliza y elige a tu gusto</span><span aria-hidden="true">⌄</span></div>
+    </section>
+
+    <nav class="category-nav" aria-label="Categorías de la carta" id="category-nav">
+      <div class="category-nav-inner"></div>
+    </nav>
+
+    <section class="menu-section section-wrap" id="carta">
+      <div class="section-heading">
+        <div><p class="eyebrow">De la cocina a tu mesa</p><h2>La carta<span class="heading-period">.</span></h2></div>
+        <p class="section-note">Consulta la carta y los precios antes de visitarnos.</p>
+      </div>
+      <p class="price-notice"><span aria-hidden="true">✳</span> Si no está en la carta, pregunta el precio antes de pedir.</p>
+      <div id="menu-categories"></div>
+    </section>
+
+    <section class="tour-section" id="recorrido" aria-labelledby="tour-title">
+      <div class="section-wrap">
+        <div class="section-heading tour-heading">
+          <div><p class="eyebrow">Un vistazo antes de elegir</p><h2 id="tour-title">Paseo por la carta<span class="heading-period">.</span></h2></div>
+          <div class="tour-controls">
+            <span class="tour-hint">Desliza para explorar</span>
+            <button type="button" class="tour-arrow" id="tour-prev" aria-label="Ver platos anteriores">←</button>
+            <button type="button" class="tour-arrow" id="tour-next" aria-label="Ver más platos">→</button>
+          </div>
+        </div>
+        <div class="tour-window">
+          <div class="tour-track" id="dish-tour" role="region" tabindex="0" aria-label="Recorrido 3D de platos; desliza horizontalmente"></div>
+        </div>
+        <div class="tour-progress" aria-hidden="true"><span id="tour-progress-bar"></span></div>
+      </div>
+    </section>
+
+    <section class="zones-section section-wrap" id="zonas">
+      <div class="section-heading">
+        <div><p class="eyebrow">Encuentra tu rincón</p><h2>El local<span class="heading-period">.</span></h2></div>
+        <p class="section-note">Tres espacios para alargar la sobremesa.</p>
+      </div>
+      <div class="zone-grid" id="zone-grid"></div>
+      <div class="reservation-card">
+        <div><p class="eyebrow">¿Te guardamos sitio?</p><h3 id="reserva">Reserva tu mesa</h3><p>Cuéntanos cuántos sois, cuándo venís y dónde os apetece sentaros.</p></div>
+        <form id="reservation-form" class="reservation-form">
+          <label>Personas<input name="people" type="number" min="1" value="2" required></label>
+          <label>Día<input name="day" type="date" required></label>
+          <label>Hora<input name="time" type="time" required></label>
+          <label>Zona preferida<select name="zone" id="reservation-zone" required></select></label>
+          <button class="button button-primary" type="submit">Reservar por WhatsApp <span aria-hidden="true">↗</span></button>
+        </form>
+        <p class="form-message reservation-message" id="reservation-message" role="status" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <section class="voices-section">
+      <div class="section-wrap voices-layout">
+        <div><p class="eyebrow">Nos gusta escucharte</p><h2>Tu opinión nos ayuda<br>a mejorar<span class="heading-period">.</span></h2><p>¿Algo que te encantó o que podemos hacer mejor? Te leemos.</p></div>
+        <div class="voice-actions">
+          <a class="button button-light" id="review-link" href="#" target="_blank" rel="noopener noreferrer">Déjanos tu reseña en Google <span aria-hidden="true">↗</span></a>
+          <a class="button button-voice-outline" id="suggestion-link" href="#">Enviar una sugerencia al encargado <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-section section-wrap" id="contacto">
+      <div class="section-heading">
+        <div><p class="eyebrow">Nos vemos por aquí</p><h2>La Tiza, en Alcosa<span class="heading-period">.</span></h2></div>
+        <a class="map-link" id="directions-link" href="#" target="_blank" rel="noopener noreferrer">Cómo llegar <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-block"><span class="contact-icon" aria-hidden="true">⌖</span><div><h3>Encuéntranos</h3><p id="contact-address"></p><a id="maps-link" href="#" target="_blank" rel="noopener noreferrer">Abrir ficha de Google Maps ↗</a></div></div>
+        <div class="contact-block"><span class="contact-icon" aria-hidden="true">◷</span><div><h3>Horario del local</h3><p id="opening-hours"></p></div></div>
+        <div class="contact-block"><span class="contact-icon" aria-hidden="true">☏</span><div><h3>¿Hablamos?</h3><a id="phone-link" href="#"><span id="phone-text"></span></a><p class="contact-small">Llámanos para cualquier consulta.</p></div></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="section-wrap footer-inner"><a class="brand footer-brand" href="#inicio"><span class="brand-mark" aria-hidden="true">T</span><span class="brand-name">La Tiza <small>Alcosa Cervecería</small></span></a><p>Sevilla Este, con sabor de barrio.</p><span class="demo-footer">Propuesta de demostración</span><a class="instagram-link" id="instagram-link" href="#" target="_blank" rel="noopener noreferrer" aria-label="Instagram">Instagram ↗</a></div>
+  </footer>
+
+  <nav class="mobile-dock" aria-label="Accesos rápidos">
+    <a href="#carta"><span aria-hidden="true">▤</span><small>Carta</small></a>
+    <a href="#reserva"><span aria-hidden="true">▣</span><small>Reservar</small></a>
+    <a id="dock-call" href="#"><span aria-hidden="true">☏</span><small>Llamar</small></a>
+  </nav>
+</body>
+</html>
